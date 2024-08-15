@@ -31,18 +31,18 @@ func _physics_process(delta):
 	#play animations
 	if is_on_floor():
 		if direction == 0:
-			sprite.play("idle")
+			sprite.play("Idle")
 		else:
-			sprite.play("run")
+			sprite.play("Run")
 	else:
-		sprite.play("jump")
+			sprite.play("jump")
 	
 		
 	#changing animations
-		elif direction == 0:
-			sprite.play("Idle")
-		elif direction:
-			sprite.play("Run") 
+	if direction == 0:
+		sprite.play("Idle")
+	else:
+		sprite.play("Run") 
 	
 	#apply movement
 	if direction:

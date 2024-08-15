@@ -16,3 +16,4 @@ position = Vector2(1, 43)
 shape = SubResource("WorldBoundaryShape2D_s3wjt")
 
 [node name="player" parent="." instance=ExtResource("1_guxsf")]
+position = Vector2(2, 47)
