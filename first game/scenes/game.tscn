@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bbakv61u31abo" path="res://scenes/player.tscn" id="1_guxsf"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_s3wjt"]
+normal = Vector2(-0.0370117, -0.999315)
 
 [node name="Game" type="Node2D"]
 
@@ -16,4 +17,4 @@ position = Vector2(1, 43)
 shape = SubResource("WorldBoundaryShape2D_s3wjt")
 
 [node name="player" parent="." instance=ExtResource("1_guxsf")]
-position = Vector2(2, 47)
+position = Vector2(-1, 20)

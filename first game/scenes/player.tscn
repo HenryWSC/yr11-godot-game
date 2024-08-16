@@ -423,7 +423,8 @@ script = ExtResource("1_cxkhj")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 2
-position = Vector2(-1, -28)
+position = Vector2(-22, -60)
+scale = Vector2(1.02033, 1.21392)
 sprite_frames = SubResource("SpriteFrames_68fjl")
 animation = &"roll"
 autoplay = "Idle"
