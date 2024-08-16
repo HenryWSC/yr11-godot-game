@@ -38,7 +38,7 @@ func _physics_process(delta):
 			sprite.play("Idle")
 		else:
 			sprite.play("Run")
-	
+		
 	
 		
 	#changing animations
@@ -46,6 +46,7 @@ func _physics_process(delta):
 		sprite.play("Idle")
 	else:
 		sprite.play("Run") 
+	
 	
 	#apply movement
 	if direction:
