@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://c4e4cnfd77lxp"]
+[gd_scene load_steps=7 format=3 uid="uid://c4e4cnfd77lxp"]
 
 [ext_resource type="PackedScene" uid="uid://bbakv61u31abo" path="res://scenes/player.tscn" id="1_guxsf"]
 [ext_resource type="Script" path="res://scenes/player.gd" id="2_kc3h3"]
@@ -6,6 +6,7 @@
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_s3wjt"]
 distance = -164.0
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yuou6"]
 texture = ExtResource("3_3mhau")
 1:1/0 = 0
