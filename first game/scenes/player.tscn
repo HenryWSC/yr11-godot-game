@@ -415,7 +415,7 @@ position = Vector2(20, 9)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 2
-position = Vector2(-19, -74)
+position = Vector2(-22, -75)
 scale = Vector2(1.02033, 1.21392)
 sprite_frames = SubResource("SpriteFrames_68fjl")
 animation = &"Jump"
