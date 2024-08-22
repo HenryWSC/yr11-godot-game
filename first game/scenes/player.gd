@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+class_name is_falling
 
 const SPEED = 200.0
 const JUMP_VELOCITY = -325.0
@@ -43,6 +44,14 @@ func _physics_process(delta):
 			sprite.play("Run") 
 	else:
 		sprite.play("Jump")
+	
+	if not is_on_floor() and velocity.y > 0:
+		sprite.play("Falling")
+	
+	if Input.is_action_just_pressed("roll"):
+		sprite.play("Roll")
+	
+	#Attacks
 	
 	
 	#apply movement
