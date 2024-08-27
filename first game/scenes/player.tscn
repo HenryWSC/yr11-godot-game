@@ -420,9 +420,8 @@ texture_filter = 2
 position = Vector2(-19, -74)
 scale = Vector2(1.02033, 1.21392)
 sprite_frames = SubResource("SpriteFrames_68fjl")
-animation = &"Jump"
+animation = &"roll"
 autoplay = "Idle"
-frame_progress = 0.79148
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-21, -21)
