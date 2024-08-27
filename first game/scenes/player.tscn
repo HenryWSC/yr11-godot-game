@@ -1,5 +1,6 @@
-[gd_scene load_steps=57 format=3 uid="uid://bbakv61u31abo"]
+[gd_scene load_steps=58 format=3 uid="uid://bbakv61u31abo"]
 
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_4om6k"]
 [ext_resource type="Texture2D" uid="uid://cyel1antnldmi" path="res://assets/elementals_wind_hashashin_FREE_v1.1/wind_SpriteSheet_288x128.png" id="3_iukjt"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bmtin"]
@@ -412,6 +413,7 @@ height = 44.0
 
 [node name="player" type="CharacterBody2D"]
 position = Vector2(20, 9)
+script = ExtResource("1_4om6k")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 2
