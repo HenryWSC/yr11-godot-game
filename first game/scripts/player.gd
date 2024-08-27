@@ -1,5 +1,9 @@
+
 extends CharacterBody2D
 
+class_name is_falling
+
+var isRolling = false
 
 const SPEED = 200.0
 const JUMP_VELOCITY = -325.0
@@ -38,11 +42,23 @@ func _physics_process(delta):
 	#changing animations
 	if is_on_floor():
 		if direction == 0:
+			pass
+		if isRolling:
+			sprite.play("roll")
+		elif direction == 0:
 			sprite.play("Idle")
 		else:
 			sprite.play("Run") 
 	else:
 		sprite.play("Jump")
+	
+	if not is_on_floor() and velocity.y > 0:
+		sprite.play("Falling")
+	
+	if Input.is_action_just_pressed("roll"):
+		sprite.play("Roll")
+	
+	#Attacks
 	
 	
 	#apply movement
