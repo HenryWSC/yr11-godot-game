@@ -56,7 +56,7 @@ func _physics_process(delta):
 		sprite.play("Falling")
 	
 	if Input.is_action_just_pressed("roll"):
-		sprite.play("Roll")
+		sprite.play("roll")
 	
 	#Attacks
 	
