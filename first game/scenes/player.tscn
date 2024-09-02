@@ -694,7 +694,7 @@ states/Roll/position = Vector2(372, 67)
 states/Run/node = SubResource("AnimationNodeBlendTree_1rvdf")
 states/Run/position = Vector2(455, 165)
 transitions = ["Idle", "Roll", SubResource("AnimationNodeStateMachineTransition_t22a1"), "Roll", "Idle", SubResource("AnimationNodeStateMachineTransition_kfvwr"), "Idle", "Run", SubResource("AnimationNodeStateMachineTransition_oqh4d"), "Run", "Idle", SubResource("AnimationNodeStateMachineTransition_fute8"), "Roll", "Run", SubResource("AnimationNodeStateMachineTransition_ovxei"), "Run", "Roll", SubResource("AnimationNodeStateMachineTransition_abhki")]
-graph_offset = Vector2(-85, 15)
+graph_offset = Vector2(-138, -4)
 
 [node name="player" type="CharacterBody2D"]
 position = Vector2(20, 9)
