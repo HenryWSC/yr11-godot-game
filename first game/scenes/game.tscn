@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://c4e4cnfd77lxp"]
+[gd_scene load_steps=7 format=3 uid="uid://c4e4cnfd77lxp"]
 
 [ext_resource type="PackedScene" uid="uid://bbakv61u31abo" path="res://scenes/player.tscn" id="1_guxsf"]
 [ext_resource type="Texture2D" uid="uid://d2l0hmipvgedu" path="res://assets/Dungeon Tile Set.png" id="3_3mhau"]
+[ext_resource type="PackedScene" uid="uid://bua612quh8jph" path="res://scenes/killzone.tscn" id="3_ddm5u"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yuou6"]
 texture = ExtResource("3_3mhau")
@@ -455,6 +456,9 @@ texture = ExtResource("3_3mhau")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_yuou6")
 
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_fdavc"]
+distance = -447.0
+
 [node name="Game" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -473,4 +477,11 @@ layer_1/tile_data = PackedInt32Array(852010, 65536, 10, 852011, 131072, 10, 8520
 [node name="Camera2D" type="Camera2D" parent="player"]
 position = Vector2(-41, -30)
 zoom = Vector2(1.5, 1.5)
+limit_bottom = 423
+limit_smoothed = true
 position_smoothing_enabled = true
+
+[node name="killzone" parent="." instance=ExtResource("3_ddm5u")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="killzone"]
+shape = SubResource("WorldBoundaryShape2D_fdavc")
