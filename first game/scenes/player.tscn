@@ -1007,6 +1007,9 @@ shape = SubResource("CapsuleShape2D_sl7qm")
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 root_node = NodePath(".")
+libraries = {
+"": SubResource("AnimationLibrary_gyjh1")
+}
 tree_root = SubResource("AnimationNodeStateMachine_bjr3u")
 anim_player = NodePath("../AnimatedSprite2D/AnimationPlayer")
 parameters/conditions/idle = false
