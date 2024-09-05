@@ -457,7 +457,7 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_yuou6")
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_fdavc"]
-distance = -447.0
+distance = -493.0
 
 [node name="Game" type="Node2D"]
 
