@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 class_name is_falling
 
+
 var isRolling = false
 var isAttacking = false
 
@@ -45,8 +46,9 @@ func _physics_process(delta):
 		if direction == 0:
 			pass
 		if isRolling == true:
+			print(Input.is_physical_key_pressed)
 			sprite.play("roll")
-			
+			isRolling == false
 		elif direction == 0:
 			sprite.play("Idle")
 			isRolling == false
@@ -56,6 +58,7 @@ func _physics_process(delta):
 	else:
 		sprite.play("Jump")
 		isRolling == false
+		
 	
 	if not is_on_floor() and velocity.y > 0:
 		sprite.play("Falling")
