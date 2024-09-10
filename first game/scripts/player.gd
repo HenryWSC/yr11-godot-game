@@ -45,11 +45,12 @@ func _physics_process(delta):
 		
 	#changing animations
 	if is_on_floor():
+		print(isrolling)
 		if direction == 0:
 			pass
 		if isrolling == true:
 			print(Input.is_physical_key_pressed)
-			sprite.play("roll")
+			sprite.play("Roll")
 		elif direction == 0:
 			sprite.play("Idle")
 			isrolling == false

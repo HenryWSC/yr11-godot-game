@@ -315,6 +315,30 @@ region = Rect2(288, 288, 288, 96)
 atlas = ExtResource("3_iukjt")
 region = Rect2(576, 288, 288, 96)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_0q3jt"]
+atlas = ExtResource("3_iukjt")
+region = Rect2(0, 704, 288, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_faqwn"]
+atlas = ExtResource("3_iukjt")
+region = Rect2(288, 704, 288, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kokj1"]
+atlas = ExtResource("3_iukjt")
+region = Rect2(576, 704, 288, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tnrub"]
+atlas = ExtResource("3_iukjt")
+region = Rect2(864, 704, 288, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t3bt0"]
+atlas = ExtResource("3_iukjt")
+region = Rect2(1152, 704, 288, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qkea7"]
+atlas = ExtResource("3_iukjt")
+region = Rect2(1440, 704, 288, 64)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_vrylm"]
 atlas = ExtResource("3_iukjt")
 region = Rect2(0, 128, 288, 128)
@@ -346,30 +370,6 @@ region = Rect2(1728, 128, 288, 128)
 [sub_resource type="AtlasTexture" id="AtlasTexture_0vtsg"]
 atlas = ExtResource("3_iukjt")
 region = Rect2(2016, 128, 288, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_0q3jt"]
-atlas = ExtResource("3_iukjt")
-region = Rect2(0, 704, 288, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_faqwn"]
-atlas = ExtResource("3_iukjt")
-region = Rect2(288, 704, 288, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_kokj1"]
-atlas = ExtResource("3_iukjt")
-region = Rect2(576, 704, 288, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_tnrub"]
-atlas = ExtResource("3_iukjt")
-region = Rect2(864, 704, 288, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_t3bt0"]
-atlas = ExtResource("3_iukjt")
-region = Rect2(1152, 704, 288, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_qkea7"]
-atlas = ExtResource("3_iukjt")
-region = Rect2(1440, 704, 288, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_68fjl"]
 animations = [{
@@ -649,6 +649,29 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_0q3jt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_faqwn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kokj1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tnrub")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t3bt0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qkea7")
+}],
+"loop": false,
+"name": &"Roll",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_vrylm")
 }, {
 "duration": 1.0,
@@ -674,29 +697,6 @@ animations = [{
 }],
 "loop": true,
 "name": &"Run",
-"speed": 7.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_0q3jt")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_faqwn")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_kokj1")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_tnrub")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_t3bt0")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_qkea7")
-}],
-"loop": false,
-"name": &"roll",
 "speed": 7.0
 }]
 
@@ -1003,6 +1003,9 @@ libraries = {
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 root_node = NodePath(".")
+libraries = {
+"": SubResource("AnimationLibrary_gyjh1")
+}
 tree_root = SubResource("AnimationNodeStateMachine_bjr3u")
 anim_player = NodePath("../AnimatedSprite2D/AnimationPlayer")
 parameters/conditions/idle = false
