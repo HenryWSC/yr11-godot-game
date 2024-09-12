@@ -45,7 +45,6 @@ func _physics_process(delta):
 		
 	#changing animations
 	if is_on_floor():
-		print(isrolling)
 		if direction == 0:
 			pass
 		if isrolling == true:

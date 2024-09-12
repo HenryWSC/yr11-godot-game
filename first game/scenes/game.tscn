@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://c4e4cnfd77lxp"]
+[gd_scene load_steps=9 format=3 uid="uid://c4e4cnfd77lxp"]
 
 [ext_resource type="PackedScene" uid="uid://bbakv61u31abo" path="res://scenes/player.tscn" id="1_guxsf"]
+[ext_resource type="Script" path="res://scenes/game.gd" id="1_i7573"]
 [ext_resource type="Texture2D" uid="uid://d2l0hmipvgedu" path="res://assets/Dungeon Tile Set.png" id="3_3mhau"]
-[ext_resource type="PackedScene" uid="uid://bua612quh8jph" path="res://scenes/killzone.tscn" id="3_ddm5u"]
+[ext_resource type="Texture2D" uid="uid://dce3snhoanvv1" path="res://assets/elementals_wind_hashashin_FREE_v1.1/wind_hashashin.png" id="3_156p1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yuou6"]
 texture = ExtResource("3_3mhau")
@@ -456,10 +457,14 @@ texture = ExtResource("3_3mhau")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_yuou6")
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_fdavc"]
-distance = -493.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2s3rr"]
+size = Vector2(512, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bnvqf"]
+size = Vector2(516, 21)
 
 [node name="Game" type="Node2D"]
+script = ExtResource("1_i7573")
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2(0, 85)
@@ -481,7 +486,23 @@ limit_bottom = 423
 limit_smoothed = true
 position_smoothing_enabled = true
 
-[node name="killzone" parent="." instance=ExtResource("3_ddm5u")]
+[node name="Spikes" type="StaticBody2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="killzone"]
-shape = SubResource("WorldBoundaryShape2D_fdavc")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Spikes"]
+position = Vector2(703, 340)
+shape = SubResource("RectangleShape2D_2s3rr")
+
+[node name="Sprite2D" type="Sprite2D" parent="Spikes"]
+visible = false
+position = Vector2(698, 340)
+scale = Vector2(8.0625, 0.03125)
+texture = ExtResource("3_156p1")
+
+[node name="Area2D" type="Area2D" parent="Spikes"]
+position = Vector2(804, 340)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Spikes/Area2D"]
+position = Vector2(-103, -0.5)
+shape = SubResource("RectangleShape2D_bnvqf")
+
+[connection signal="body_entered" from="Spikes/Area2D" to="." method="_on_area_2d_body_entered"]
