@@ -11,9 +11,8 @@ func _ready():
 func _on_timer_timeout():
 	$timer.wait_time = choose([1.0, 2.0, 3.0])
 	if !is_skellybones_chase:
-		dir = choose ([Vector2.RIGHT, Vector2.LEFT, Vector2.UP, Vector2.DOWN ])
+		dir = choose ([Vector2.RIGHT, Vector2.LEFT])
 		print(dir)
 
 func choose(array):
 	array.shuffle()
-	return array.front()
