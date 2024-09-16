@@ -1,4 +1,4 @@
-[gd_scene load_steps=116 format=3 uid="uid://bbakv61u31abo"]
+[gd_scene load_steps=117 format=3 uid="uid://bbakv61u31abo"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_4om6k"]
 [ext_resource type="Texture2D" uid="uid://cyel1antnldmi" path="res://assets/elementals_wind_hashashin_FREE_v1.1/wind_SpriteSheet_288x128.png" id="3_iukjt"]
@@ -984,6 +984,9 @@ graph_offset = Vector2(-138, -4)
 radius = 9.0
 height = 44.0
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7p060"]
+height = 44.0
+
 [node name="player" type="CharacterBody2D"]
 position = Vector2(20, 9)
 script = ExtResource("1_4om6k")
@@ -1003,9 +1006,6 @@ libraries = {
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 root_node = NodePath(".")
-libraries = {
-"": SubResource("AnimationLibrary_gyjh1")
-}
 tree_root = SubResource("AnimationNodeStateMachine_bjr3u")
 anim_player = NodePath("../AnimatedSprite2D/AnimationPlayer")
 parameters/conditions/idle = false
@@ -1015,3 +1015,11 @@ parameters/conditions/rolling = false
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-19, -22)
 shape = SubResource("CapsuleShape2D_sl7qm")
+
+[node name="Hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(-19, -23)
+shape = SubResource("CapsuleShape2D_7p060")
+
+[connection signal="body_exited" from="Hitbox" to="." method="_on_hitbox_body_exited"]
