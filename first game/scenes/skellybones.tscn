@@ -365,7 +365,7 @@ shape = SubResource("CapsuleShape2D_g7te7")
 
 [node name="Timer" type="Timer" parent="."]
 process_callback = 0
-wait_time = 3.556
+wait_time = 2907.7
 autostart = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
