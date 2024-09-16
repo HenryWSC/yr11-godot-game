@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 class_name is_falling
 
+var HP = 100
 
 var isrolling = false
 var isAttacking = false
@@ -13,6 +14,8 @@ const JUMP_VELOCITY = -345.0
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var sprite = $AnimatedSprite2D
 
+func _ready():
+	add_to_group("skellybones")
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -88,3 +91,8 @@ func _physics_process(delta):
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	move_and_slide()
+
+
+func _on_hitbox_body_exited(body):
+	if body.is_in_group("skellybones"):
+		queue_free()
