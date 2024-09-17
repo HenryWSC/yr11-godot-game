@@ -465,6 +465,9 @@ size = Vector2(512, 16)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bnvqf"]
 size = Vector2(516, 21)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4ndpr"]
+size = Vector2(60.3218, 427)
+
 [node name="Game" type="Node2D"]
 script = ExtResource("1_i7573")
 
@@ -506,6 +509,18 @@ position = Vector2(804, 340)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Spikes/Area2D"]
 position = Vector2(-103, -0.5)
 shape = SubResource("RectangleShape2D_bnvqf")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Spikes"]
+visible = false
+position = Vector2(1587, 308)
+scale = Vector2(2.71875, 0.03125)
+texture = ExtResource("3_156p1")
+
+[node name="Area2D" type="Area2D" parent="Spikes/Sprite2D2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Spikes/Sprite2D2/Area2D"]
+position = Vector2(-0.367859, -74.5)
+shape = SubResource("RectangleShape2D_4ndpr")
 
 [node name="skellybones" parent="." instance=ExtResource("5_77jmx")]
 position = Vector2(331, 566)

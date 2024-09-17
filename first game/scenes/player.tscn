@@ -984,8 +984,8 @@ graph_offset = Vector2(-138, -4)
 radius = 9.0
 height = 44.0
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7p060"]
-height = 44.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_61rca"]
+size = Vector2(15.5, 6.5)
 
 [node name="player" type="CharacterBody2D"]
 position = Vector2(20, 9)
@@ -1022,7 +1022,7 @@ shape = SubResource("CapsuleShape2D_sl7qm")
 [node name="Hitbox" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
-position = Vector2(-19, -23)
-shape = SubResource("CapsuleShape2D_7p060")
+position = Vector2(-18, 0)
+shape = SubResource("RectangleShape2D_61rca")
 
 [connection signal="body_exited" from="Hitbox" to="." method="_on_hitbox_body_exited"]

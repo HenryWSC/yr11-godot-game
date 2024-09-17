@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://d12y21tm0jabx"]
+[gd_scene load_steps=51 format=3 uid="uid://d12y21tm0jabx"]
 
 [ext_resource type="Script" path="res://scripts/skellybones.gd" id="1_nop8r"]
 [ext_resource type="Texture2D" uid="uid://cyt6bgqhhsu0f" path="res://assets/Skeleton enemy/Skeleton enemy.png" id="2_5m0u7"]
@@ -225,7 +225,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_g4pgx")
 }],
-"loop": true,
+"loop": false,
 "name": &"attack",
 "speed": 7.0
 }, {
@@ -269,7 +269,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_u66i2")
 }],
-"loop": true,
+"loop": false,
 "name": &"die",
 "speed": 7.0
 }, {
@@ -283,7 +283,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_2uqnh")
 }],
-"loop": true,
+"loop": false,
 "name": &"hit",
 "speed": 5.0
 }, {
@@ -346,6 +346,9 @@ animations = [{
 "speed": 7.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mvmvp"]
+size = Vector2(18, 8)
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g7te7"]
 height = 40.0
 
@@ -357,10 +360,6 @@ sprite_frames = SubResource("SpriteFrames_plnp7")
 animation = &"attack"
 autoplay = "idle"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 7)
-shape = SubResource("CapsuleShape2D_g7te7")
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 
 [node name="Timer" type="Timer" parent="."]
@@ -368,4 +367,17 @@ process_callback = 0
 wait_time = 2907.7
 autostart = true
 
+[node name="Hitbox" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(0, -10)
+shape = SubResource("RectangleShape2D_mvmvp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 7)
+shape = SubResource("CapsuleShape2D_g7te7")
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="body_exited" from="Hitbox" to="." method="_on_hitbox_body_exited"]
