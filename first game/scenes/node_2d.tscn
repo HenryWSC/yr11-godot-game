@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=3 uid="uid://eiuj2of6boad"]
+[gd_scene load_steps=49 format=3 uid="uid://eiuj2of6boad"]
 
 [ext_resource type="Texture2D" uid="uid://cyt6bgqhhsu0f" path="res://assets/Skeleton enemy/Skeleton enemy.png" id="1_iu2dh"]
 
@@ -345,9 +345,19 @@ animations = [{
 "speed": 7.0
 }]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_q2i5n"]
+radius = 12.0
+height = 38.0
+
 [node name="skelly bones" type="Node2D"]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ruuh5")
 animation = &"idle"
 autoplay = "idle"
+
+[node name="Hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(-1, 11)
+shape = SubResource("CapsuleShape2D_q2i5n")
