@@ -509,7 +509,7 @@ position = Vector2(-3, -0.5)
 shape = SubResource("RectangleShape2D_bnvqf")
 
 [node name="skellybones" parent="." instance=ExtResource("5_77jmx")]
-position = Vector2(80, 111)
+position = Vector2(-103, 107)
 
 [node name="testybones" parent="." instance=ExtResource("6_r7yid")]
 position = Vector2(352, 298)
