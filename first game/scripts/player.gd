@@ -7,7 +7,7 @@ var HP = 100
 var isrolling = false
 var isAttacking = false
 
-const SPEED = 200.0
+const SPEED = 20000.0
 const JUMP_VELOCITY = -345.0
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.

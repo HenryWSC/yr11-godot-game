@@ -9,7 +9,7 @@ var is_skellybones_chase: bool
 	
 func _ready():
 	is_skellybones_chase = false
-	add_to_group("Player")
+
 
 func _on_timer_timeout():
 	$timer.wait_time = choose([1.0, 2.0, 3.0])
@@ -21,11 +21,13 @@ func choose(array):
 	array.shuffle()
 	
 	
-	
-	
-
-
 func _on_hitbox_body_entered(body):
 	if body.is_in_group("Playerz"):
 		sprite.play("die")
 		
+	
+
+
+
+		
+

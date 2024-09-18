@@ -11,12 +11,13 @@ var direction : int = 1  # 1 for right, -1 for left
 var time_since_last_change : float = 0.0
 var time_moving : float = 0.0
 
-var dead = true
+var dead = false
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 func _ready():
 	choose_random_direction()
+	add_to_group("Player")
 
 func _process(delta: float) -> void:
 	time_since_last_change += delta
@@ -42,7 +43,18 @@ func choose_random_direction() -> void:
 		direction = 1
 		
 #he will die if player touches him
-func _on_hitbox_body_exited(body):
-	if body.is_in_group("Player"):
-		sprite.play("die")
+
 		
+		
+
+
+
+func _on_hitbox_body_entered(body):
+	if body.is_in_group("Playerz"):
+		sprite.play("die")
+		dead = true
+
+
+func _on_animated_sprite_2d_animation_finished():
+	
+		queue_free()

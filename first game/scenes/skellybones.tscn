@@ -346,8 +346,7 @@ animations = [{
 "speed": 7.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_mvmvp"]
-size = Vector2(18, 8)
+[sub_resource type="CircleShape2D" id="CircleShape2D_03jy6"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g7te7"]
 height = 40.0
@@ -372,12 +371,13 @@ collision_layer = 2
 collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
-position = Vector2(0, -10)
-shape = SubResource("RectangleShape2D_mvmvp")
+position = Vector2(0, -4)
+shape = SubResource("CircleShape2D_03jy6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 7)
 shape = SubResource("CapsuleShape2D_g7te7")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="area_shape_entered" from="Hitbox" to="." method="_on_hitbox_area_shape_entered"]
 [connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]

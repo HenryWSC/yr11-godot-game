@@ -326,10 +326,9 @@ height = 118.0
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_0sukh")
-animation = &"attack"
+animation = &"death"
 autoplay = "idle"
-frame = 7
-frame_progress = 0.726619
+frame_progress = 0.0822331
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(67, 42)
