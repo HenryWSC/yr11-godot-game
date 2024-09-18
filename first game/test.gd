@@ -11,6 +11,8 @@ var direction : int = 1  # 1 for right, -1 for left
 var time_since_last_change : float = 0.0
 var time_moving : float = 0.0
 
+
+
 var dead = false
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -22,11 +24,17 @@ func _ready():
 func _process(delta: float) -> void:
 	time_since_last_change += delta
 	time_moving += delta
+	
+	if direction >= 0:
+		sprite.flip_h = false
+	elif direction <= 0:
+		sprite.flip_h = true
 
 	if time_since_last_change >= change_direction_interval:
 		choose_random_direction()
 		time_since_last_change = 0.0
 		time_moving = 0.0
+
 
 	if time_moving < move_duration:
 		velocity = Vector2(direction * speed, 0)  # Only move horizontally
