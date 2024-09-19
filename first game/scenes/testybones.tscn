@@ -347,20 +347,23 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g7te7"]
-height = 40.0
+radius = 8.0
+height = 28.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_p2dg7"]
+radius = 4.0
 
 [node name="Zestybones" type="CharacterBody2D"]
 script = ExtResource("1_pm1lo")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_plnp7")
-animation = &"die"
+animation = &"walk"
 autoplay = "idle"
+frame_progress = 0.964445
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-4, 9)
+position = Vector2(-1, 12)
 shape = SubResource("CapsuleShape2D_g7te7")
 
 [node name="Hitbox" type="Area2D" parent="."]
@@ -368,7 +371,7 @@ shape = SubResource("CapsuleShape2D_g7te7")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 light_mask = 2
 visibility_layer = 3
-position = Vector2(-5, -7)
+position = Vector2(1, -2)
 shape = SubResource("CircleShape2D_p2dg7")
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

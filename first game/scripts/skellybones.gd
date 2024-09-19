@@ -24,10 +24,6 @@ func choose(array):
 func _on_hitbox_body_entered(body):
 	if body.is_in_group("Playerz"):
 		sprite.play("die")
-		
-	
 
-
-
-		
-
+func _on_animated_sprite_2d_animation_finished():
+	queue_free()

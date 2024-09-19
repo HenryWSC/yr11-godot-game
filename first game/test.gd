@@ -20,6 +20,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 func _ready():
 	choose_random_direction()
 	add_to_group("Player")
+	add_to_group("Skellybones")
 
 func _process(delta: float) -> void:
 	time_since_last_change += delta
@@ -64,5 +65,5 @@ func _on_hitbox_body_entered(body):
 
 
 func _on_animated_sprite_2d_animation_finished():
-	
+	if dead == true:
 		queue_free()
