@@ -352,6 +352,9 @@ height = 40.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_p2dg7"]
 
 [node name="Zestybones" type="CharacterBody2D"]
+position = Vector2(1, -29)
+collision_layer = 2
+collision_mask = 3
 script = ExtResource("1_pm1lo")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -370,6 +373,10 @@ light_mask = 2
 visibility_layer = 3
 position = Vector2(-5, -7)
 shape = SubResource("CircleShape2D_p2dg7")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2(25, -13)
+collision_mask = 4
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="area_shape_entered" from="Hitbox" to="." method="_on_hitbox_area_shape_entered"]
