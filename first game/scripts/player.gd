@@ -40,7 +40,8 @@ func _physics_process(delta):
 		sprite.flip_h = false
 	elif direction <= 0:
 		sprite.flip_h = true
-	
+		
+	#rolling shit
 	if Input.is_action_just_pressed("roll"):
 		isrolling = true
 	else:
@@ -61,28 +62,28 @@ func _physics_process(delta):
 			isrolling == false
 	else:
 		sprite.play("Jump")
-		isrolling == false
+		#isrolling == false
 		
 	
 	if not is_on_floor() and velocity.y > 0:
 		sprite.play("Falling")
-		isrolling == false
+		#isrolling == false
 	
 	
 	
 	#Attacks
-	if is_on_floor():
-		if Input.is_action_just_pressed("Attack 1"):
-			sprite.play("Attack 1")
-			isrolling == false
-			
-		if Input.is_action_just_pressed("Attack 2"):
-			sprite.play("Attack 2")
-			isrolling == false
-			
-		if Input.is_action_just_pressed("Attack 3"):
-			sprite.play("Attack 3")
-			isrolling == false
+	#if is_on_floor():
+	#	if Input.is_action_just_pressed("Attack 1"):
+	#		sprite.play("Attack 1")
+	#		isrolling == false
+	#		
+	#	if Input.is_action_just_pressed("Attack 2"):
+	#		sprite.play("Attack 2")
+	#		isrolling == false
+	#		
+	#	if Input.is_action_just_pressed("Attack 3"):
+	#		sprite.play("Attack 3")
+	#		isrolling == false
 	
 	#apply movement
 	if direction:
