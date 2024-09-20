@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://c4e4cnfd77lxp"]
+[gd_scene load_steps=12 format=3 uid="uid://c4e4cnfd77lxp"]
 
 [ext_resource type="PackedScene" uid="uid://bbakv61u31abo" path="res://scenes/player.tscn" id="1_guxsf"]
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_i7573"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dce3snhoanvv1" path="res://assets/elementals_wind_hashashin_FREE_v1.1/wind_hashashin.png" id="3_156p1"]
 [ext_resource type="PackedScene" uid="uid://d12y21tm0jabx" path="res://scenes/skellybones.tscn" id="5_77jmx"]
 [ext_resource type="PackedScene" uid="uid://sh73dtkekek1" path="res://scenes/testybones.tscn" id="6_r7yid"]
+[ext_resource type="PackedScene" uid="uid://blgirn8gbqhvx" path="res://scenes/tenst.tscn" id="7_0pwvc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yuou6"]
 texture = ExtResource("3_3mhau")
@@ -613,6 +614,11 @@ position = Vector2(804, 340)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Spikes6/Area2D"]
 position = Vector2(-304, 203)
 shape = SubResource("RectangleShape2D_bnvqf")
+
+[node name="tenst" parent="." instance=ExtResource("7_0pwvc")]
+position = Vector2(27, 48)
+attack_range = null
+attack_cooldown = null
 
 [connection signal="body_entered" from="Spikes/Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="Spikes2/Area2D" to="." method="_on_area_2d_body_entered"]
