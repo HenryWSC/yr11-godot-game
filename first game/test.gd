@@ -51,6 +51,10 @@ func choose_random_direction() -> void:
 	if direction == 0:  
 		direction = 1
 		
+#he will die if player touches him
+
+		
+		
 
 
 
@@ -66,10 +70,4 @@ func _on_animated_sprite_2d_animation_finished():
 	if dead == true:
 		queue_free()
 
-# attack if player in proximity
 
-func hit():
-	$AttackDetector.monitoring = true
-
-func end_of_hit():
-	$AttackDetector.monitoring = false

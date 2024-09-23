@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=3 uid="uid://sh73dtkekek1"]
+[gd_scene load_steps=51 format=3 uid="uid://sh73dtkekek1"]
 
 [ext_resource type="Script" path="res://test.gd" id="1_pm1lo"]
 [ext_resource type="Texture2D" uid="uid://cyt6bgqhhsu0f" path="res://assets/Skeleton enemy/Skeleton enemy.png" id="2_s6bsj"]
@@ -353,36 +353,7 @@ height = 28.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_p2dg7"]
 radius = 4.0
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_qs3ck"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_dj6t3"]
-size = Vector2(20, 5)
-
-[sub_resource type="Animation" id="Animation_j8c4n"]
-resource_name = "walk"
-
-[sub_resource type="Animation" id="Animation_1smvw"]
-resource_name = "attack"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:animation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(),
-"transitions": PackedFloat32Array(),
-"update": 1,
-"values": []
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_wgkd5"]
-_data = {
-"attack": SubResource("Animation_1smvw"),
-"walk": SubResource("Animation_j8c4n")
-}
-
-[node name="testybones" type="CharacterBody2D"]
+[node name="Zestybones" type="CharacterBody2D"]
 position = Vector2(1, -29)
 collision_layer = 2
 collision_mask = 3
@@ -392,6 +363,7 @@ script = ExtResource("1_pm1lo")
 sprite_frames = SubResource("SpriteFrames_plnp7")
 animation = &"walk"
 autoplay = "idle"
+frame_progress = 0.964445
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1, 12)
@@ -405,29 +377,9 @@ visibility_layer = 3
 position = Vector2(1, -2)
 shape = SubResource("CircleShape2D_p2dg7")
 
-[node name="PlayerDetecter" type="Area2D" parent="."]
-collision_layer = 0
-collision_mask = 3
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetecter"]
-position = Vector2(17, 12)
-shape = SubResource("RectangleShape2D_qs3ck")
-
-[node name="AttackDetector" type="Area2D" parent="."]
-collision_layer = 0
-collision_mask = 3
-monitoring = false
-monitorable = false
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackDetector"]
-position = Vector2(17, 12)
-shape = SubResource("RectangleShape2D_dj6t3")
-debug_color = Color(0.670588, 0.345098, 0.941176, 0.419608)
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_wgkd5")
-}
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2(25, -13)
+collision_mask = 4
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="area_shape_entered" from="Hitbox" to="." method="_on_hitbox_area_shape_entered"]
