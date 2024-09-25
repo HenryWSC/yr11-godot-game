@@ -22,9 +22,13 @@ func _ready():
 	add_to_group("Player")
 	add_to_group("Skellybones")
 
+
+
 func _process(delta: float) -> void:
 	time_since_last_change += delta
 	time_moving += delta
+	if $AnimationPlayer.current_animation == "attack":
+		return
 	
 	if direction >= 0:
 		sprite.flip_h = false
@@ -70,4 +74,19 @@ func _on_animated_sprite_2d_animation_finished():
 	if dead == true:
 		queue_free()
 
+func hit():
+	$AttackDetector.monitoring = true
 
+func end_of_hit():
+	$AttackDetector.monitoring = false
+	
+
+func _on_PlayerDetector_body_entered(body):
+	pass
+
+func _on_AttackDetector_body_entered(body):
+	get_tree().reload_current_scene()
+
+
+func _on_player_detector_body_entered(body):
+	$AnimationPlayer.play("attack")
