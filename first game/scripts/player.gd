@@ -16,6 +16,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 func _ready():
 	add_to_group("Playerz")
+	add_to_group("skellybones")
 
 func _physics_process(delta):
 	# Add the gravity.
