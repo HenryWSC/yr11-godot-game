@@ -353,6 +353,9 @@ height = 28.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_p2dg7"]
 radius = 4.0
 
+[sub_resource type="Animation" id="Animation_2rweh"]
+resource_name = "Attack"
+
 [sub_resource type="Animation" id="Animation_pivwy"]
 length = 0.001
 
@@ -371,9 +374,6 @@ tracks/0/keys = {
 "update": 1,
 "values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
 }
-
-[sub_resource type="Animation" id="Animation_2rweh"]
-resource_name = "Attack"
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_q5dxy"]
 _data = {

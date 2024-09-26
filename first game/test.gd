@@ -90,3 +90,6 @@ func _on_AttackDetector_body_entered(body):
 
 func _on_player_detector_body_entered(body):
 	$AnimationPlayer.play("attack")
+	
+	
+	
