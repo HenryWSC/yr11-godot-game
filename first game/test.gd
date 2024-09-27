@@ -47,6 +47,10 @@ func _process(delta: float) -> void:
 
 	#letting him kill player
 	
+func attacking_true():
+	if sprite.play("swing"):
+		speed = 0
+	
 	
 func choose_random_direction() -> void:
 	# Random direction
@@ -78,6 +82,16 @@ func _on_animated_sprite_2d_animation_finished():
 func _on_animated_sprite_2d_animation_changed():
 	pass # Replace with function body.
 
-func attack_true():
-	if sprite.play("attack"):
-		Attacking == true
+
+			
+
+
+func _on_attack_detector_body_entered(body):
+	if Attacking == false:
+		if body.is_in_group("Playerz"):
+			sprite.play("die")
+			speed = 0
+			dead = true
+	elif Attacking == true:
+		if body.is_in_group("playerz"):
+			pass

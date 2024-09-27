@@ -465,4 +465,5 @@ debug_color = Color(0.654902, 0.321569, 1, 0.419608)
 [connection signal="area_shape_entered" from="Hitbox" to="." method="_on_hitbox_area_shape_entered"]
 [connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
 [connection signal="body_entered" from="PlayerDetector" to="." method="_on_player_detector_body_entered"]
+[connection signal="body_entered" from="AttackDetector" to="." method="_on_attack_detector_body_entered"]
 [connection signal="body_entered" from="PlayerDetectorRight" to="." method="_on_player_detector_body_entered"]
