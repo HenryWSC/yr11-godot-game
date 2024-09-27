@@ -5,8 +5,18 @@ extends CharacterBody2D
 const speed = 30
 var dir: Vector2
 
+var attacking = false
+
 var is_skellybones_chase: bool
-	
+
+func Code():
+	if sprite.play("attack"):
+		attacking = true
+pass
+
+
+
+
 func _ready():
 	is_skellybones_chase = false
 
@@ -27,3 +37,5 @@ func _on_hitbox_body_entered(body):
 
 func _on_animated_sprite_2d_animation_finished():
 	queue_free()
+	pass
+	
