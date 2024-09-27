@@ -225,7 +225,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_g4pgx")
 }],
-"loop": true,
+"loop": false,
 "name": &"attack",
 "speed": 7.0
 }, {
@@ -383,6 +383,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_016er"]
+size = Vector2(20, 8.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8ih85"]
 size = Vector2(20, 6)
@@ -489,7 +490,7 @@ collision_layer = 0
 collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetector"]
-position = Vector2(21, 12)
+position = Vector2(22, -9)
 shape = SubResource("RectangleShape2D_016er")
 
 [node name="AttackDetector" type="Area2D" parent="."]
@@ -499,7 +500,7 @@ monitoring = false
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackDetector"]
-position = Vector2(21, 12)
+position = Vector2(22, -9)
 shape = SubResource("RectangleShape2D_8ih85")
 debug_color = Color(0.654902, 0.321569, 1, 0.419608)
 
@@ -508,7 +509,7 @@ collision_layer = 0
 collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetectorRight"]
-position = Vector2(-27, 12)
+position = Vector2(-29, -9)
 shape = SubResource("RectangleShape2D_016er")
 
 [node name="AttackDetectorRight" type="Area2D" parent="."]
@@ -518,7 +519,7 @@ monitoring = false
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackDetectorRight"]
-position = Vector2(-27, 12)
+position = Vector2(-29, -9)
 shape = SubResource("RectangleShape2D_8ih85")
 debug_color = Color(0.654902, 0.321569, 1, 0.419608)
 
