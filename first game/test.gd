@@ -65,6 +65,24 @@ func _on_hitbox_body_entered(body):
 		if body.is_in_group("playerz"):
 			pass
 			
+			
+func hit():
+	$AttackDetector.monitoring = true
+
+func end_of_hit():
+	$AttackDetector.monitoring = false
+	
+
+func _on_PlayerDetector_body_entered(body):
+	pass
+
+func _on_AttackDetector_body_entered(body):
+	get_tree().reload_current_scene()
+
+
+func _on_player_detector_body_entered(body):
+	$AnimationPlayer2.play("swing")
+
 
 func _on_animated_sprite_2d_animation_finished():
 	if dead == true:
