@@ -353,6 +353,9 @@ height = 28.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_p2dg7"]
 radius = 4.0
 
+[sub_resource type="Animation" id="Animation_2rweh"]
+resource_name = "Attack"
+
 [sub_resource type="Animation" id="Animation_pivwy"]
 length = 0.001
 tracks/0/type = "value"
