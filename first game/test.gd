@@ -71,3 +71,15 @@ func _on_animated_sprite_2d_animation_finished():
 		queue_free()
 
 
+func _on_animated_sprite_2d_animation_changed():
+	pass # Replace with function body.
+
+
+func _on_player_detector_body_entered(body):
+	$AnimationPlayer.play("attack")
+	
+	
+	
+func attack_true():
+	if sprite.play("attack"):
+		Attacking == true
