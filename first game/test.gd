@@ -11,7 +11,7 @@ var direction : int = 1
 var time_since_last_change : float = 0.0
 var time_moving : float = 0.0
 
-var Attacking = false
+
 
 var dead = false
 
@@ -45,9 +45,6 @@ func _process(delta: float) -> void:
 	# Update the position
 	move_and_slide()
 
-	#letting him kill player
-	
-	
 func choose_random_direction() -> void:
 	# Random direction
 	direction = randi_range(-1, 1)
@@ -55,29 +52,22 @@ func choose_random_direction() -> void:
 		direction = 1
 		
 #he will die if player touches him
+
+		
+		
+
+
+
 func _on_hitbox_body_entered(body):
-	if Attacking == false:
-		if body.is_in_group("Playerz"):
-			sprite.play("die")
-			speed = 0
-			dead = true
-	elif Attacking == true:
-		if body.is_in_group("playerz"):
-			pass
-			
+	if body.is_in_group("Playerz"):
+		sprite.play("die")
+		speed = 0
+		dead = true
+
+
 
 func _on_animated_sprite_2d_animation_finished():
 	if dead == true:
 		queue_free()
-		
-	
 
-	
-		
 
-func _on_animated_sprite_2d_animation_changed():
-	pass # Replace with function body.
-
-func attack_true():
-	if sprite.play("attack"):
-		Attacking == true
