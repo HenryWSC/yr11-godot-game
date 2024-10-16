@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=3 uid="uid://sh73dtkekek1"]
+[gd_scene load_steps=61 format=3 uid="uid://sh73dtkekek1"]
 
 [ext_resource type="Script" path="res://test.gd" id="1_pm1lo"]
 [ext_resource type="Texture2D" uid="uid://cyt6bgqhhsu0f" path="res://assets/Skeleton enemy/Skeleton enemy.png" id="2_s6bsj"]
@@ -346,18 +346,58 @@ animations = [{
 "speed": 7.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g7te7"]
-radius = 8.0
-height = 28.0
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_p2dg7"]
-radius = 4.0
-
 [sub_resource type="Animation" id="Animation_2rweh"]
 resource_name = "Attack"
+length = 1.2
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 2, -0.25, 0, 0.25, 0, 3, -0.25, 0, 0.25, 0, 4, -0.25, 0, 0.25, 0, 5, -0.25, 0, 0.25, 0, 6, -0.25, 0, 0.25, 0, 7, -0.25, 0, 0.25, 0, 8, -0.25, 0, 0.25, 0, 9, -0.25, 0, 0.25, 0, 10, -0.25, 0, 0.25, 0, 11, -0.25, 0, 0.25, 0, 12, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2)
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimationPlayer/attack hitbox/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.6, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [true, false, true, false, true]
+}
 
 [sub_resource type="Animation" id="Animation_pivwy"]
 length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimationPlayer/attack hitbox/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_iwcic"]
 resource_name = "attack"
@@ -381,6 +421,16 @@ _data = {
 "RESET": SubResource("Animation_pivwy"),
 "attack": SubResource("Animation_iwcic")
 }
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d26vt"]
+size = Vector2(20, 46.25)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g7te7"]
+radius = 8.0
+height = 28.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_p2dg7"]
+radius = 4.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_016er"]
 size = Vector2(20, 8.5)
@@ -459,6 +509,18 @@ sprite_frames = SubResource("SpriteFrames_plnp7")
 animation = &"attack"
 autoplay = "idle"
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatedSprite2D"]
+libraries = {
+"": SubResource("AnimationLibrary_q5dxy")
+}
+
+[node name="attack hitbox" type="Area2D" parent="AnimatedSprite2D/AnimationPlayer"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/AnimationPlayer/attack hitbox"]
+position = Vector2(28, -25)
+shape = SubResource("RectangleShape2D_d26vt")
+disabled = true
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1, 12)
 shape = SubResource("CapsuleShape2D_g7te7")
@@ -480,26 +542,21 @@ hframes = 13
 vframes = 6
 frame = 11
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_q5dxy")
-}
-
-[node name="PlayerDetector" type="Area2D" parent="."]
+[node name="PlayerDetectorLeft" type="Area2D" parent="."]
 collision_layer = 0
 collision_mask = 3
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetector"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetectorLeft"]
 position = Vector2(22, -9)
 shape = SubResource("RectangleShape2D_016er")
 
-[node name="AttackDetector" type="Area2D" parent="."]
+[node name="AttackDetectorLeft2" type="Area2D" parent="."]
 collision_layer = 0
 collision_mask = 3
 monitoring = false
 monitorable = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackDetector"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackDetectorLeft2"]
 position = Vector2(22, -9)
 shape = SubResource("RectangleShape2D_8ih85")
 debug_color = Color(0.654902, 0.321569, 1, 0.419608)
@@ -512,13 +569,13 @@ collision_mask = 3
 position = Vector2(-29, -9)
 shape = SubResource("RectangleShape2D_016er")
 
-[node name="AttackDetectorRight" type="Area2D" parent="."]
+[node name="AttackDetectorRight2" type="Area2D" parent="."]
 collision_layer = 0
 collision_mask = 3
 monitoring = false
 monitorable = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackDetectorRight"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackDetectorRight2"]
 position = Vector2(-29, -9)
 shape = SubResource("RectangleShape2D_8ih85")
 debug_color = Color(0.654902, 0.321569, 1, 0.419608)
@@ -529,8 +586,9 @@ libraries = {
 }
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="area_entered" from="AnimatedSprite2D/AnimationPlayer/attack hitbox" to="." method="_on_attack_hitbox_area_entered"]
 [connection signal="area_shape_entered" from="Hitbox" to="." method="_on_hitbox_area_shape_entered"]
 [connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
-[connection signal="body_entered" from="PlayerDetector" to="." method="_on_player_detector_body_entered"]
-[connection signal="body_entered" from="AttackDetector" to="." method="_on_attack_detector_body_entered"]
+[connection signal="body_entered" from="PlayerDetectorLeft" to="." method="_on_player_detector_body_entered"]
+[connection signal="body_entered" from="AttackDetectorLeft2" to="." method="_on_attack_detector_body_entered"]
 [connection signal="body_entered" from="PlayerDetectorRight" to="." method="_on_player_detector_body_entered"]

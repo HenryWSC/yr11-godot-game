@@ -13,6 +13,8 @@ var time_moving : float = 0.0
 
 var Attacking = false
 
+
+
 var dead = false
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -21,6 +23,7 @@ func _ready():
 	choose_random_direction()
 	add_to_group("Player")
 	add_to_group("Skellybones")
+	add_to_group("swing")
 
 func _process(delta: float) -> void:
 	time_since_last_change += delta
@@ -113,3 +116,15 @@ func _on_attack_detector_body_entered(body):
 	elif Attacking == true:
 		if body.is_in_group("playerz"):
 			pass
+
+
+func _attack_hitbox_area_group(area):
+	area.is_in_group("swing")
+	pass
+
+func _on_attack_hitbox_area_entered(area):
+	if area.is_in_group("playerz"):
+		pass
+	
+	
+
