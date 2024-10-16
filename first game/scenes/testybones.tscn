@@ -363,7 +363,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("AnimationPlayer/attack hitbox/CollisionShape2D:disabled")
+tracks/1/path = NodePath("AnimationPlayer/attack hitbox/CollisionShape2D2:disabled")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -389,7 +389,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("AnimationPlayer/attack hitbox/CollisionShape2D:disabled")
+tracks/1/path = NodePath("AnimationPlayer/attack hitbox/CollisionShape2D2:disabled")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -426,8 +426,8 @@ _data = {
 size = Vector2(20, 46.25)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g7te7"]
-radius = 8.0
-height = 28.0
+radius = 9.25
+height = 37.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_p2dg7"]
 radius = 4.0

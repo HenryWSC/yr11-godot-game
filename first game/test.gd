@@ -24,6 +24,7 @@ func _ready():
 	add_to_group("Player")
 	add_to_group("Skellybones")
 	add_to_group("swing")
+	
 
 func _process(delta: float) -> void:
 	time_since_last_change += delta
