@@ -513,7 +513,7 @@ shape = SubResource("RectangleShape2D_bnvqf")
 position = Vector2(-103, 107)
 
 [node name="testybones" parent="." instance=ExtResource("6_r7yid")]
-position = Vector2(352, 298)
+position = Vector2(380, 302)
 
 [node name="Spikes2" type="StaticBody2D" parent="."]
 
@@ -613,6 +613,66 @@ position = Vector2(804, 340)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Spikes6/Area2D"]
 position = Vector2(-304, 203)
 shape = SubResource("RectangleShape2D_bnvqf")
+
+[node name="testybones2" parent="." instance=ExtResource("6_r7yid")]
+position = Vector2(-1159, -563)
+
+[node name="testybones3" parent="." instance=ExtResource("6_r7yid")]
+position = Vector2(-1286, -500)
+
+[node name="testybones4" parent="." instance=ExtResource("6_r7yid")]
+position = Vector2(-1161, -510)
+
+[node name="testybones6" parent="." instance=ExtResource("6_r7yid")]
+position = Vector2(-1048, -501)
+
+[node name="testybones7" parent="." instance=ExtResource("6_r7yid")]
+position = Vector2(-788, -499)
+
+[node name="testybones8" parent="." instance=ExtResource("6_r7yid")]
+position = Vector2(-597, -499)
+
+[node name="testybones9" parent="." instance=ExtResource("6_r7yid")]
+position = Vector2(-486, -497)
+
+[node name="testybones10" parent="." instance=ExtResource("6_r7yid")]
+position = Vector2(-262, -703)
+
+[node name="testybones11" parent="." instance=ExtResource("6_r7yid")]
+position = Vector2(-183, -642)
+
+[node name="testybones12" parent="." instance=ExtResource("6_r7yid")]
+position = Vector2(-119, -705)
+
+[node name="testybones13" parent="." instance=ExtResource("6_r7yid")]
+position = Vector2(886, -228)
+
+[node name="testybones14" parent="." instance=ExtResource("6_r7yid")]
+position = Vector2(1082, -227)
+
+[node name="testybones15" parent="." instance=ExtResource("6_r7yid")]
+position = Vector2(1033, -227)
+
+[node name="testybones16" parent="." instance=ExtResource("6_r7yid")]
+position = Vector2(937, -226)
+
+[node name="testybones17" parent="." instance=ExtResource("6_r7yid")]
+position = Vector2(984, -225)
+
+[node name="testybones18" parent="." instance=ExtResource("6_r7yid")]
+position = Vector2(1835, -209)
+
+[node name="testybones19" parent="." instance=ExtResource("6_r7yid")]
+position = Vector2(1754, -210)
+
+[node name="testybones20" parent="." instance=ExtResource("6_r7yid")]
+position = Vector2(1333, 270)
+
+[node name="testybones21" parent="." instance=ExtResource("6_r7yid")]
+position = Vector2(1225, 270)
+
+[node name="testybones22" parent="." instance=ExtResource("6_r7yid")]
+position = Vector2(1113, 271)
 
 [connection signal="body_entered" from="Spikes/Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="Spikes2/Area2D" to="." method="_on_area_2d_body_entered"]
