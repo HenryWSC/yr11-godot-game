@@ -423,14 +423,16 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d26vt"]
-size = Vector2(20, 46.25)
+size = Vector2(20, 43.125)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g7te7"]
 radius = 9.25
 height = 37.0
+radius = 8.0
+height = 34.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_p2dg7"]
-radius = 4.0
+radius = 7.07107
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_016er"]
 size = Vector2(20, 8.5)
@@ -517,12 +519,12 @@ libraries = {
 [node name="attack hitbox" type="Area2D" parent="AnimatedSprite2D/AnimationPlayer"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/AnimationPlayer/attack hitbox"]
-position = Vector2(28, -25)
+position = Vector2(21, -24)
 shape = SubResource("RectangleShape2D_d26vt")
 disabled = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1, 12)
+position = Vector2(-1, 8)
 shape = SubResource("CapsuleShape2D_g7te7")
 
 [node name="Hitbox" type="Area2D" parent="."]
