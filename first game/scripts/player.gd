@@ -95,7 +95,8 @@ func _physics_process(delta):
 	
 	 
 
-
+func _attack_hitbox_area_entered():
+	get_tree().reload_current_scene()
 
 
 

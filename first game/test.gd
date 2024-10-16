@@ -119,8 +119,7 @@ func _on_attack_detector_body_entered(body):
 
 
 func _attack_hitbox_area_group(area):
-	area.is_in_group("swing")
-	pass
+	add_to_group("swing")
 
 func _on_attack_hitbox_area_entered(area):
 	if area.is_in_group("playerz"):
